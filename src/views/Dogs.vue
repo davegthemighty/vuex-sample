@@ -1,23 +1,23 @@
 <template>
   <div>
-    <Table :items="dogs" />
+    <PetTable :pets="allDogs" />
   </div>
 </template>
 
 <script>
 
-import dogs from '@/data/dogs'
-import Table from '@/components/Table.vue'
+import PetTable from '@/components/PetTable.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'dogs',
   components: {
-    Table
+    PetTable
   },
-  data () {
-    return {
-      dogs
-    }
+  computed: {
+    ...mapGetters([
+      'allDogs'
+    ])
   }
 }
 
